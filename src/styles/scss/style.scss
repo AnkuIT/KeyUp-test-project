@@ -1,0 +1,442 @@
+@import "_global";
+@import "_vars";
+@import "_typography";
+@import "_fonts";
+
+.container {
+	min-height: 100%;
+	max-width: 100%;
+	display: grid;
+	border: 3px solid $white;
+	justify-content: center;
+	grid-template:
+		"header" minmax(197px, auto)
+		"main" auto
+		"footer" minmax(100px, auto)
+		/ 1fr;
+	grid-gap: 30px;
+	.header {
+		grid-area: header;
+		display: grid;
+		grid-template:
+			"main main logo" 1fr
+			"endline endline endline" 20px
+			/1fr 1fr 177px;
+		&__main {
+			grid-area: main;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			background-color: $main_background;
+		}
+		&__title {
+			padding: 0 0 30px 79px;
+			letter-spacing: -0.7px;
+		}
+
+		&__title2 {
+			padding: 0 0 30px 79px;
+			letter-spacing: -0.7px;
+			text-transform: uppercase;
+		}
+		&__logo {
+			grid-area: logo;
+			background-color: $logo;
+		}
+		&__endline {
+			grid-area: endline;
+			background-color: $red;
+		}
+	}
+	.main {
+		grid-area: main;
+		display: flex;
+		flex-direction: column;
+		width: 1194px;
+		max-width: 100%;
+		margin: 0 auto;
+
+		&__banking {
+			display: grid;
+			grid-template: "owner renter" 1fr / 1fr 1fr;
+			margin-bottom: 30px;
+		}
+
+		// &__equipment {
+		// }
+
+		// &__rental {
+		// }
+
+		&__background {
+			background: linear-gradient(90deg, $main_background 50%, transparent 100%);
+		}
+
+		&__subtitle {
+			padding: 16px 0 16px 0;
+		}
+
+		.banking {
+			&__title {
+				padding: 28px 0 26px 20px;
+				letter-spacing: 0.6px;
+			}
+
+			&__owner {
+				grid-area: owner;
+			}
+
+			&__renter {
+				grid-area: renter;
+			}
+
+			.owner {
+				&__info {
+					padding: 0 10px;
+					p {
+						letter-spacing: -0.4px;
+						padding-bottom: 13px;
+					}
+
+					:nth-child(6) {
+						padding-bottom: 18px;
+					}
+					:nth-child(8) {
+						letter-spacing: -1.4px;
+						padding-bottom: 22px;
+					}
+					:nth-child(9) {
+						letter-spacing: -0.6px;
+						padding-bottom: 14px;
+					}
+					:nth-child(10) {
+						letter-spacing: -1px;
+						padding-bottom: 8px;
+					}
+					:nth-child(11) {
+						letter-spacing: -0.8px;
+					}
+				}
+			}
+			.renter {
+				&__info {
+					padding: 0 8px;
+					p {
+						letter-spacing: -0.4px;
+						padding-bottom: 13px;
+					}
+
+					:nth-child(4) {
+						padding-bottom: 18px;
+						padding-left: 0;
+					}
+
+					:nth-child(6) {
+						letter-spacing: -1.4px;
+						padding-bottom: 24px;
+					}
+
+					:nth-child(7) {
+						letter-spacing: -0.3px;
+					}
+
+					:nth-child(8) {
+						letter-spacing: -1.1px;
+						padding-bottom: 6px;
+					}
+
+					:nth-child(9) {
+						letter-spacing: -0.8px;
+					}
+				}
+			}
+		}
+
+		.equipment {
+			&__title {
+				padding: 28px 0 22px 20px;
+				letter-spacing: 0.6px;
+				margin-bottom: 12px;
+			}
+
+			&__subtitle {
+				background-color: $table__title;
+				display: grid;
+				justify-content: center;
+				border-bottom: 1px solid $table;
+				padding: 15px 0 12px 0;
+				letter-spacing: -0.5px;
+			}
+
+			&__table {
+				display: grid;
+				grid-template: "description serial quantity" 1fr / 42.75% 27.75% 29.5%;
+				border: 2px solid $table;
+				border-radius: 10px;
+				margin-left: 8px;
+				margin-right: 11px;
+				margin-bottom: 26px;
+			}
+
+			&__item {
+				text-align: center;
+				border: 1px solid $table;
+				border-left: 0;
+				border-right: 0;
+				padding: 15px 0 12px 0;
+				&:last-child {
+					border: 0;
+					border-top: 1px solid $table;
+				}
+			}
+
+			&__description {
+				display: grid;
+				border-right: 2px solid $table;
+			}
+
+			&__serial {
+				display: grid;
+				border-right: 2px solid $table;
+			}
+
+			&__quantity {
+				display: grid;
+			}
+
+			&__total {
+				display: flex;
+				justify-content: space-evenly;
+				margin-bottom: 50px;
+			}
+
+			.total {
+				&__info {
+					margin-left: 100px;
+					letter-spacing: -0.4px;
+				}
+
+				&__price {
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.rental {
+			&__title {
+				padding: 28px 0 24px 20px;
+				letter-spacing: 0.6px;
+			}
+
+			&__info {
+				display: grid;
+				grid-template: "start end" 1fr / 1fr 1fr;
+				margin-left: 10px;
+			}
+
+			.info {
+				&__start {
+					grid-area: start;
+				}
+
+				&__end {
+					grid-area: end;
+				}
+
+				.start {
+					:nth-child(2) {
+						letter-spacing: -0.7px;
+					}
+
+					:nth-child(4) {
+						letter-spacing: -0.8px;
+						margin-bottom: 4px;
+					}
+					&__subtitle {
+						padding: 15px 0 15px 0;
+					}
+
+					&__item {
+						padding-bottom: 15px;
+					}
+				}
+
+				.end {
+					:nth-child(2) {
+						letter-spacing: -0.8px;
+					}
+
+					:nth-child(3) {
+						letter-spacing: -0.5px;
+					}
+
+					:nth-child(4) {
+						letter-spacing: -0.7px;
+						margin-bottom: 2px;
+					}
+
+					:nth-child(5) {
+						letter-spacing: -0.4px;
+					}
+
+					&__subtitle {
+						padding: 15px 0 15px 0;
+					}
+
+					&__item {
+						padding-bottom: 15px;
+					}
+				}
+			}
+		}
+	}
+	.footer {
+		grid-area: footer;
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		margin-right: 0px;
+		a {
+			font-size: 40px;
+		}
+	}
+}
+
+/*CSS part_2.html*/
+
+.container2 {
+	min-height: 100%;
+	max-width: 100%;
+	display: grid;
+	border: 3px solid $white;
+	justify-content: center;
+	grid-template:
+		"header" minmax(180px, auto)
+		"main" auto
+		"footer" minmax(100px, auto)
+		/ 1fr;
+	grid-gap: 30px;
+	.header {
+		grid-area: header;
+		display: grid;
+		grid-template:
+			"main main logo" 1fr
+			"endline endline endline" 20px
+			/1fr 1fr 177px;
+		&__main {
+			grid-area: main;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			background-color: $main_background;
+		}
+		&__title {
+			padding: 0 0 30px 75px;
+			letter-spacing: 0.7px;
+			text-transform: uppercase;
+			font-size: 40px;
+		}
+
+		&__logo {
+			grid-area: logo;
+			background-color: $logo;
+		}
+		&__endline {
+			grid-area: endline;
+			background-color: $red;
+		}
+	}
+	.main {
+		grid-area: main;
+		display: flex;
+		flex-direction: column;
+		width: 1194px;
+		max-width: 100%;
+		margin: 0 auto;
+
+		&__background {
+			background: linear-gradient(90deg, $main_background 50%, transparent 100%);
+		}
+
+		// &__rules {
+		// }
+
+		// .rules {
+		// 	&__rule {
+		// 	}
+		// }
+		.rule {
+			// &__background {
+			// }
+
+			&__title {
+				padding: 28px 0 24px 20px;
+				letter-spacing: -0.6px;
+				margin-bottom: 12px;
+			}
+
+			&__content {
+				display: flex;
+				flex-direction: column;
+				padding: 0 9px;
+				letter-spacing: -0.9px;
+				max-width: 95%;
+
+				p {
+					line-height: 30px;
+					margin-bottom: 32px;
+				}
+				span {
+					display: inline-block;
+					padding: 0px 8px;
+					text-decoration: underline;
+					font-weight: bold;
+				}
+			}
+			.content {
+				:nth-child(6) {
+					margin-bottom: 25px;
+				}
+				&__list {
+					padding-left: 25px;
+					font-size: 22px;
+					li {
+						padding: 0 0 10px 0;
+						list-style-type: upper-alpha;
+					}
+				}
+			}
+		}
+
+		// .rule1 {
+		// }
+		.rule2 {
+			.rule__title {
+				margin-bottom: 15px;
+			}
+		}
+		.rule3 {
+			.rule__title {
+				margin-bottom: 16px;
+			}
+		}
+		.rule4 {
+			.rule__title {
+				margin-bottom: 17px;
+			}
+		}
+		.rule5 {
+			margin-bottom: 32px;
+		}
+	}
+	.footer {
+		grid-area: footer;
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		margin-right: 0px;
+		a {
+			font-size: 40px;
+		}
+	}
+}
